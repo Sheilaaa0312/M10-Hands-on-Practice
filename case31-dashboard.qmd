@@ -1,0 +1,374 @@
+---
+title: Case 31 | Credit Union Member Experience
+author: Xueying Luo
+format: dashboard
+navbar: false
+sidebar: false
+execute:
+  echo: false
+  warning: false
+  message: false
+editor: source
+theme:
+- cosmo
+- dashboard.scss
+orientation: rows
+scrolling: true
+nav-buttons:
+- icon: house-door
+  href: index.html
+  aria-label: Return to portfolio home
+- icon: info-circle
+  href: dashboard.html
+  aria-label: About this teaching-case dashboard
+toc: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(readxl)
+library(scales)
+
+survey <- read_excel("data/case31_prepared.xlsx")
+
+# at_emp is the employee average already provided in the prepared file.
+# The four employee questions are complete for all 128 records.
+survey <- survey |>
+  mutate(employee_mean = at_emp)
+
+employee_n <- sum(!is.na(survey$employee_mean))
+overall_n <- sum(!is.na(survey$q37r))
+overall_positive <- sum(survey$q37r >= 4, na.rm = TRUE)
+loan_n <- sum(survey$q27 %in% c(1, 2))
+loan_yes <- sum(survey$q27 == 1, na.rm = TRUE)
+
+# Put the four employee questions in one column, then summarize each one.
+employee_summary <- survey |>
+  select(q3:q6) |>
+  pivot_longer(everything(), names_to = "item", values_to = "score") |>
+  filter(!is.na(score)) |>
+  mutate(item = recode(item, q3 = "Courteous", q4 = "Helpful",
+                       q5 = "Professional", q6 = "Available")) |>
+  group_by(item) |>
+  summarise(valid_n = n(), mean_score = mean(score),
+            agree = sum(score >= 4) / n(), .groups = "drop")
+
+# These five questions use the same 1–5 agreement scale.
+operation_summary <- survey |>
+  select(q30:q34) |>
+  pivot_longer(everything(), names_to = "item", values_to = "score") |>
+  filter(!is.na(score)) |>
+  mutate(item = recode(item,
+    q30 = "Loan rates lower than others",
+    q31 = "Financial information confidential",
+    q32 = "Prompt loan processing",
+    q33 = "Services meet member needs",
+    q34 = "Simple loan application")) |>
+  group_by(item) |>
+  summarise(valid_n = n(), mean_score = mean(score),
+            agree = sum(score >= 4) / n(), .groups = "drop")
+
+overall_levels <- c("Very poor", "Poor", "Average", "Good", "Excellent")
+overall <- survey |>
+  filter(!is.na(q37r)) |>
+  count(rating = factor(q37r, levels = 1:5, labels = overall_levels)) |>
+  mutate(share = n / sum(n))
+
+# r columns have already been recoded. I keep those supplied values.
+awareness_long <- survey |>
+  select(q13r:q26r) |>
+  pivot_longer(everything(), names_to = "service", values_to = "response") |>
+  mutate(service = recode(service,
+    q13r = "Regular share account", q14r = "Special subaccounts",
+    q15r = "Christmas club account", q16r = "IRA account",
+    q17r = "MasterCard credit card", q18r = "Signature loans",
+    q19r = "New car loans", q20r = "Late model car loans",
+    q21r = "Older model car loans", q22r = "Household goods loans",
+    q23r = "Recreational loans", q24r = "Share collateralized loans",
+    q25r = "IRA loans", q26r = "Line of credit loans"))
+
+awareness_levels <- c("Unaware", "Aware; not used", "Aware and used")
+awareness <- awareness_long |>
+  filter(!is.na(response)) |>
+  mutate(status = factor(response, levels = 1:3, labels = awareness_levels)) |>
+  count(service, status) |>
+  group_by(service) |>
+  mutate(valid_n = sum(n), share = n / valid_n) |>
+  ungroup()
+
+awareness_table <- awareness_long |>
+  group_by(service) |>
+  summarise(valid_n = sum(!is.na(response)),
+            unaware_n = sum(response == 1, na.rm = TRUE),
+            aware_unused_n = sum(response == 2, na.rm = TRUE),
+            used_n = sum(response == 3, na.rm = TRUE), .groups = "drop") |>
+  mutate(unaware_share = unaware_n / valid_n,
+         used_share = used_n / valid_n) |>
+  arrange(desc(unaware_share), service)
+service_order <- rev(awareness_table$service)
+
+rate_levels <- c("Very low", "Low", "Average", "High", "Very high")
+rate_distributions <- survey |>
+  select(q7r, q8r) |>
+  pivot_longer(everything(), names_to = "item", values_to = "score") |>
+  filter(!is.na(score)) |>
+  mutate(item = recode(item, q7r = "Savings rates", q8r = "Borrowing rates"),
+         rating = factor(score, levels = 1:5, labels = rate_levels)) |>
+  count(item, rating) |>
+  group_by(item) |>
+  mutate(valid_n = sum(n), share = n / valid_n,
+         panel = paste0(item, " (n = ", valid_n, ")")) |>
+  ungroup()
+
+missingness <- tibble(
+  measure = c("Employee average", "Savings rates", "Borrowing rates",
+              "Overall management/operation", "Current loan status"),
+  valid_n = c(employee_n, sum(!is.na(survey$q7r)),
+              sum(!is.na(survey$q8r)), overall_n, loan_n)
+) |>
+  mutate(total = nrow(survey), excluded_n = total - valid_n)
+
+teal <- "#087f8c"
+navy <- "#183f52"
+awareness_colors <- c("Unaware" = "#b96512", "Aware; not used" = "#8da5b1",
+                       "Aware and used" = teal)
+theme_set(theme_minimal(base_size = 12) +
+            theme(panel.grid.minor = element_blank(),
+                  legend.position = "bottom"))
+```
+
+# Member Experience
+
+## Snapshot
+
+```{r}
+#| label: records-box
+#| content: valuebox
+#| title: "Records in teaching file"
+#| icon: people
+#| color: primary
+list(value = comma(nrow(survey), accuracy = 1))
+```
+
+```{r}
+#| label: employee-box
+#| content: valuebox
+#| title: "Employee rating | mean of four items"
+#| icon: person-check
+#| color: primary
+list(value = paste0(number(mean(survey$employee_mean, na.rm = TRUE),
+                          accuracy = 0.01), " / 5"),
+     title = paste0("Employee rating | ", employee_n, " complete records"))
+```
+
+```{r}
+#| label: overall-box
+#| content: valuebox
+#| title: "Overall evaluation | good or excellent"
+#| icon: star
+#| color: secondary
+list(value = percent(overall_positive / overall_n, accuracy = 0.1),
+     title = paste0("Overall good/excellent | ", overall_positive,
+                    " of ", overall_n, " valid ratings"))
+```
+
+```{r}
+#| label: loan-box
+#| content: valuebox
+#| title: "Currently have a credit union loan"
+#| icon: bank
+#| color: secondary
+list(value = percent(loan_yes / loan_n, accuracy = 0.1),
+     title = paste0("Current credit union loan | ", loan_yes,
+                    " of ", loan_n, " yes/no responses"))
+```
+
+## Experience charts
+
+```{r}
+#| label: employee-chart
+#| title: "Employees: share agreeing or strongly agreeing"
+#| fig-width: 7
+#| fig-height: 3.7
+#| fig-alt: "Agreement with employee statements: courteous 89.8%, helpful 88.3%, professional 82.0%, and available 78.9%. Each item has 128 responses."
+ggplot(employee_summary, aes(agree, fct_reorder(item, agree))) +
+  geom_col(fill = teal, width = 0.6) +
+  geom_text(aes(label = percent(agree, accuracy = 0.1)),
+            hjust = -0.1, size = 3.6) +
+  scale_x_continuous(labels = label_percent(), limits = c(0, 1.08),
+                     breaks = seq(0, 1, 0.25)) +
+  labs(x = "Agree or strongly agree (scores 4–5)", y = NULL,
+       subtitle = "Each item: 128 valid responses")
+```
+
+```{r}
+#| label: overall-chart
+#| title: "Overall management and operation"
+#| fig-width: 7
+#| fig-height: 3.7
+#| fig-alt: "Overall ratings: very poor 1, poor 2, average 16, good 71, excellent 31. Seven records have no valid overall rating."
+ggplot(overall, aes(rating, share)) +
+  geom_col(fill = navy, width = 0.65) +
+  geom_text(aes(label = paste0(n, " (", percent(share, accuracy = 0.1), ")")),
+            vjust = -0.5, size = 3.2) +
+  scale_y_continuous(labels = label_percent(),
+                     expand = expansion(mult = c(0, 0.18))) +
+  labs(x = NULL, y = "Share of valid ratings",
+       subtitle = paste0("n = ", overall_n, "; ", nrow(survey) - overall_n,
+                         " missing/no-opinion responses excluded"))
+```
+
+## More detail {.tabset}
+
+```{r}
+#| label: agreement-table
+#| title: "Employee and service statements"
+bind_rows(mutate(employee_summary, area = "Employee"),
+          mutate(operation_summary, area = "Service / loan")) |>
+  select(area, item, valid_n, mean_score, agree) |>
+  mutate(mean_score = round(mean_score, 2),
+         agree = percent(agree, accuracy = 0.1)) |>
+  knitr::kable(col.names = c("Area", "Statement", "Valid n", "Mean / 5",
+                            "Agree / strongly agree"))
+```
+
+```{r}
+#| label: rates-chart
+#| title: "Rate perceptions"
+#| fig-width: 11
+#| fig-height: 3.6
+#| fig-alt: "Savings and borrowing rates are shown separately from very low to very high. Average is the most common response for both. Valid counts are 118 for savings and 107 for borrowing."
+ggplot(rate_distributions, aes(rating, share)) +
+  geom_col(fill = teal, width = 0.65) +
+  geom_text(aes(label = n), vjust = -0.4, size = 3.3) +
+  facet_wrap(~panel) +
+  scale_y_continuous(labels = label_percent(),
+                     expand = expansion(mult = c(0, 0.15))) +
+  labs(x = NULL, y = "Share of valid responses",
+       subtitle = "High borrowing rates mean perceived cost, not higher satisfaction. Labels show counts.")
+```
+
+::: {.card title="What I would investigate next"}
+Availability has the lowest agreement of the four employee items.
+I'd ask members when they had trouble reaching someone before suggesting
+a staffing or scheduling change. These are historical teaching data, so
+this isn't a report on a credit union's current performance.
+:::
+
+# Service Awareness
+
+## Awareness and use
+
+```{r}
+#| label: awareness-chart
+#| title: "Which services are known and used?"
+#| fig-width: 11
+#| fig-height: 6
+#| fig-alt: "Stacked bars compare 14 services across unaware, aware but not used, and aware and used. Regular share accounts and IRA loans have the largest unaware shares in the supplied prepared coding."
+ggplot(awareness, aes(share, factor(service, levels = service_order), fill = status)) +
+  geom_col(width = 0.72, position = position_stack(reverse = TRUE)) +
+  scale_fill_manual(values = awareness_colors, drop = FALSE) +
+  scale_x_continuous(labels = label_percent(), breaks = seq(0, 1, 0.25),
+                     expand = expansion(mult = c(0, 0.03))) +
+  labs(x = "Share of valid responses for each service", y = NULL, fill = NULL,
+       subtitle = "Ordered by unaware share | All 14 items have 128 valid responses")
+```
+
+## Service details
+
+::: {.card title="Awareness and use by service"}
+
+```{r}
+#| label: awareness-table
+awareness_table |>
+  mutate(unaware_share = percent(unaware_share, accuracy = 0.1),
+         used_share = percent(used_share, accuracy = 0.1)) |>
+  select(service, valid_n, unaware_n, aware_unused_n, used_n,
+         unaware_share, used_share) |>
+  knitr::kable(col.names = c("Service", "Valid n", "Unaware", "Aware; not used",
+                            "Used", "Unaware (%)", "Used (%)"))
+```
+
+**Before choosing an outreach topic**
+
+Regular share accounts and IRA loans have the largest unaware shares in
+this prepared file. I'd check the question wording and coding first,
+especially because the regular share account result seems surprising.
+I've kept the values as supplied.
+
+Knowing about a service and choosing not to use it is different from never
+having heard of it. I'd ask about members' needs and reasons for nonuse
+before deciding what information to send them.
+:::
+
+# Data Notes
+
+## Reading the data
+
+::: {.card title="Source, definitions, and missing answers"}
+
+**Source and scope**
+
+This dashboard uses `data/case31_prepared.xlsx`, an unchanged copy of
+`Case 31 Data_efcu_Prepped.xlsx` supplied in the course repository.
+
+**Source:** Jae Min Jung,
+[Employees Federal Credit Union Case](https://github.com/jaejungca/case31),
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+I used the instructor's preparation QMD to check the labels and recodes,
+then made the summaries, charts, and dashboard pages shown here.
+
+The workbook has **128 rows**. The accompanying printed case describes
+125 returns, with two excluded, implying 123 usable returns. I couldn't resolve that difference from the supplied materials, so I
+use the workbook's 128 records and don't calculate a survey response rate.
+
+**How to read the measures**
+
+| Measure | Fields and definition |
+|---|---|
+| Employee items | `q3`–`q6`: courteous, helpful, professional, available. 1 strongly disagree to 5 strongly agree. |
+| Employee composite | `at_emp` in the prepared file is each record's mean of the four employee items. I average that column; all four items are complete here. |
+| Service / loan agreement | `q30`–`q34`: 1 strongly disagree to 5 strongly agree. Agreement percentage combines 4 and 5. |
+| Overall management/operation | Prepared `q37r`: 1 very poor to 5 excellent. Good/excellent combines 4 and 5, among valid ratings. |
+| Savings and borrowing rates | Prepared `q7r`, `q8r`: 1 very low to 5 very high. Borrowing-rate direction is not a satisfaction scale. |
+| Awareness and use | Prepared `q13r`–`q26r`: 1 unaware, 2 aware but not used, 3 aware and used. |
+| Current credit union loan | `q27`: 1 yes, 2 no; any missing or no-answer code is excluded from the yes/no denominator. |
+
+Prepared fields ending in `r` are already recoded; this dashboard does not
+reverse them again. Each percentage uses the valid answers for that question. Missing answers
+stay missing. For the rate and overall questions, blanks in the prepared
+file include no-opinion/no-answer responses; I can't tell those reasons
+apart from the blank cells alone.
+
+Agreement combines scores 4 and 5. Each employee, service-agreement, and
+awareness item has 128 valid answers. In the awareness table, the three
+response columns are counts; the last two columns show percentages.
+
+**How many answers went into each result?**
+
+```{r}
+#| label: missingness-table
+missingness |>
+  select(measure, total, valid_n, excluded_n) |>
+  knitr::kable(col.names = c("Measure", "File records", "Valid answers",
+                            "Missing / excluded"))
+```
+
+**What the dashboard supports**
+
+The charts describe the records in this file. They don't tell me what
+caused a rating or whether all members would answer the same way. I show
+rating distributions and agreement percentages alongside the means so
+readers can see more than one average.
+
+Before using these results for outreach, I'd check the sample count and
+coding, confirm the services offered, and ask why members haven't used them.
+
+The dashboard is rendered with R and Quarto. Its plots are static; the
+page navigation and tabs work in the browser without a Shiny server.
+
+[About this practice project](dashboard.html) ·
+[Return to portfolio](index.html)
+:::

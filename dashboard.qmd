@@ -1,0 +1,70 @@
+---
+title: "Case 31: Credit Union Dashboard"
+subtitle: "A closer look at member experience and service awareness"
+toc: true
+---
+
+## What Do Members Think?
+
+How do members rate employees? Which services do they know about or use?
+I used the Case 31 Employees Federal Credit Union data to explore these
+questions in R and build my first dashboard for this module.
+
+[Open the dashboard](case31-dashboard.qmd){.btn .btn-primary}
+
+## What's Inside
+
+| Page | What you'll find |
+|---|---|
+| Member Experience | Employee ratings, overall ratings, loan status, and rate perceptions |
+| Service Awareness | Awareness and use of 14 credit union services |
+| Data Notes | The source, response scales, and how I handled missing answers |
+
+The workbook has **128 records**. The average employee rating is **4.21
+out of 5**. For the overall management and operation question, **102 of
+121 valid answers (84.3%)** are good or excellent.
+
+Those overall results look positive, but the employee chart shows that
+availability has lower agreement than courtesy or helpfulness. I'd want
+to ask about that difference before suggesting a change.
+
+::: {.callout-note title="A quick note on the scales"}
+A higher employee rating is favorable. A higher borrowing-rate score means
+someone thinks the rate is high. They answer different questions, so I
+show them separately.
+:::
+
+## How I Put It Together
+
+I read the Excel file with `read_excel()`, then used `pivot_longer()`,
+`count()`, and `summarise()` to prepare the chart data. I made the plots
+with ggplot2 and the tables with `knitr::kable()`.
+
+The dashboard uses headings for its pages and rows, value boxes for the
+main numbers, and tabs for the extra detail. The code runs when I render
+the file. Visitors can switch pages and tabs in the HTML output.
+
+## About the Data
+
+These are course teaching data, separate from my CEP. I used the prepared
+columns and the instructor's coding notes. The dashboard's Data Notes
+explain missing answers and a difference between the workbook's record
+count and the count described in the printed case.
+
+**Source:** Jae Min Jung,
+[Employees Federal Credit Union Case](https://github.com/jaejungca/case31),
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+I adapted the prepared data into this dashboard.
+
+## My CEP Work
+
+My client project is about content and lead generation for PhD Orthodontics.
+The case study covers the competitor comparison I've done and the audit
+and survey work I'm planning.
+
+[Read my CEP case study](case-study.qmd){.btn .btn-outline-primary}
+
+## Resources I Used
+
+- [Quarto dashboard layout](https://quarto.org/docs/dashboards/layout.html)
+- [Quarto dashboard data display](https://quarto.org/docs/dashboards/data-display.html)

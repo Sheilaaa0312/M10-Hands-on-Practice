@@ -1,0 +1,14 @@
+- title: "PhD Orthodontics: Content and Patient Information"
+  path: case-study.html
+  description: "My competitor comparison and plans for the content audit and survey analysis. Work in progress."
+  categories: [Content Research, Competitor Analysis, Research Design]
+
+- title: "Case 31: Credit Union Member Experience"
+  path: case31-dashboard.html
+  description: "Employee ratings, service awareness, and loan perceptions from the Case 31 teaching data."
+  categories: [R, Survey Analysis, Quarto]
+
+- title: "Portfolio Website Styling"
+  path: styling.html
+  description: "The CSS and SCSS behind this site's colors, note style, and project card."
+  categories: [CSS, SCSS, Web Design]

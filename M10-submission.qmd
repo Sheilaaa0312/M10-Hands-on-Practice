@@ -1,0 +1,27 @@
+---
+title: "M10: My Portfolio Website"
+author: "Xueying Luo"
+navbar: false
+sidebar: false
+format:
+  html:
+    theme: cosmo
+    embed-resources: true
+    toc: false
+---
+
+<!-- Publish under Sheilaaa0312/M10-Hands-on-Practice and test both links before submitting. -->
+
+## My Website
+
+[Open my portfolio website](https://Sheilaaa0312.github.io/M10-Hands-on-Practice/)
+
+The site has my introduction, a Case 31 dashboard, CSS/SCSS examples, and
+a Quarto Listings page. I've also added a case study about my CEP work.
+
+## My GitHub Repository
+
+[View my website files](https://github.com/Sheilaaa0312/M10-Hands-on-Practice)
+
+The repository includes my QMD files, settings, styles, photo, teaching
+data, and the rendered website.

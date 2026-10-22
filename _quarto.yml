@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - dashboard.qmd
+    - case31-dashboard.qmd
+    - case-study.qmd
+    - styling.qmd
+    - listings.qmd
+
+website:
+  title: "Xueying Luo"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: dashboard.qmd
+        text: Quarto Dashboard
+      - href: styling.qmd
+        text: CSS/SCSS
+      - href: listings.qmd
+        text: Listings
+
+format:
+  html:
+    theme: [cosmo, site.scss]
+    css: styles.css
+    lang: en
+    toc: true
+    code-copy: true
+    highlight-style: github
+
+editor: source

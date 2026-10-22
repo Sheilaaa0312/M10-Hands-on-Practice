@@ -1,0 +1,90 @@
+---
+title: "PhD Orthodontics: Content and Patient Information"
+subtitle: "My part in Group 6's CEP"
+description: "A competitor comparison and a plan for reviewing website content and patient information needs."
+categories: [Content Research, Competitor Analysis, Research Design]
+toc: true
+---
+
+::: {.callout-note title="Where the project stands"}
+I've prepared the competitor comparison and research methods. The content
+audit, survey analysis, and final recommendations are still planned work.
+:::
+
+## What I'm Working On
+
+What do prospective patients want to know before contacting PhD Orthodontics?
+How clearly does the website answer those questions?
+
+That's the focus of my objective, AO3: content and lead generation. I'm
+looking at the information on the pages, including treatment explanations,
+payment information, and consultation steps. San Gabriel is our current
+focus. Chino Hills is a future planning area.
+
+## What I've Done So Far
+
+I compared PhD Orthodontics with Valley Smiles Orthodontics and San Marino
+Orthodontics for our report. I also prepared and presented that comparison
+and the content opportunities in our proposal slides.
+
+| What I noticed in our review | What I want to check next |
+|---|---|
+| PhD has early-treatment information, FAQs, provider qualifications, and appointment prompts. | How clearly do the pages explain early treatment versus monitoring and what happens at a consultation? |
+| Valley Smiles' Alhambra page puts treatment information, financing, directions, and a consultation form together. | Can someone find PhD's treatment, payment, and contact information without searching across several pages? |
+| San Marino's aligner page explains the process, and its Patient Resources page covers insurance and financing. | How fully does PhD explain the treatment process and payment options? |
+
+These examples come from our report and proposal review. They give me
+things to check; I haven't confirmed that those topics are missing from
+PhD's website.
+
+## My Plan for the Content Audit
+
+I'll review the relevant service, FAQ, education, financial, provider,
+location, and consultation pages. For each topic, I'll save the page URL,
+review date, and a short excerpt or page location supporting the code.
+
+| Code | How I'll use it |
+|---|---|
+| 0 — Absent | An applicable topic isn't addressed on the reviewed page. |
+| 1 — Brief | The page mentions the topic but gives little explanation. |
+| 2 — Explained | The page gives details that help answer the question. |
+
+I'll keep clarity notes separately and check other included pages before
+calling something a website-wide gap. Inaccessible pages and topics that
+don't apply will stay separate from a zero score. Clinical questions will
+go to the client for checking.
+
+I plan to ask another member to independently review about 20% of the
+coding records and record agreement before we discuss differences.
+
+## What the Survey Would Add
+
+The draft asks what information people need before showing them selected
+website material. People who confirm reviewing that material then rate
+its clarity, relevance, coverage, and usefulness. I'll look at those items
+separately and keep "cannot judge" apart from neutral answers.
+
+The open questions could show what people still want to know and what
+might stop them from contacting the practice. The Qualtrics export is a
+questionnaire draft, not response data. The website material still needs
+instructor confirmation, so I don't have survey findings to report yet.
+
+## What I'd Like to Produce
+
+I'd like to make a table linking each suggested content change to the
+reason for it: a question raised in the survey, a topic found in the audit,
+a competitor example, a review theme, or a captured search topic.
+
+The partial Google Ads search terms can give me topics to check. They
+don't show overall search demand or which content led to an inquiry.
+I'll use the audit and survey evidence to decide the priorities with the team.
+
+## Project Materials
+
+- Group 6 CEP report, Chapters 1–3: AO3 and the competitive analysis.
+- Group 6 proposal slides, especially slides 7, 10, 15, and 20.
+- Group 6 Qualtrics questionnaire draft: Q2, Q4, Q5, and the open questions.
+
+My [Case 31 dashboard](dashboard.qmd) uses separate course data for practice.
+
+[Back to my work](listings.qmd){.btn .btn-outline-primary}

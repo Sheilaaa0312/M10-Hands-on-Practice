@@ -1,0 +1,88 @@
+---
+title: "Browse My Work"
+subtitle: "Using Quarto Listings to collect project links"
+toc: true
+listing:
+  id: portfolio-examples
+  contents: projects.yml
+  type: table
+  fields: [title, description, categories]
+  field-display-names:
+    title: "Project"
+    description: "What's inside"
+    categories: "Skills"
+  sort: "title"
+  sort-ui: false
+  filter-ui: false
+  categories: true
+  table-striped: true
+  table-hover: true
+---
+
+## Pick a Project
+
+Here's my CEP case study, the Case 31 dashboard, and the styling page.
+The case study is still in progress. The dashboard uses separate teaching data.
+
+::: {#portfolio-examples}
+:::
+
+## What Does a Listing Do?
+
+A listing collects links and descriptions into one place. Quarto can read
+that information from pages or from a YAML file. I used `projects.yml` for
+this site because there are only three entries to keep track of.
+
+When I add a project to that file and render again, Quarto adds it to the
+table. I still need to publish the updated site for visitors to see it.
+
+## The Settings I Used
+
+These are the main settings in this page's header:
+
+```yaml
+listing:
+  id: portfolio-examples
+  contents: projects.yml
+  type: table
+  fields: [title, description, categories]
+  sort: "title"
+  categories: true
+```
+
+`contents` points to my entries. `type` chooses the layout, and `fields`
+chooses the columns. I also renamed the column headings in the full header
+and turned off the search and sorting controls for this small collection.
+
+The div named `portfolio-examples` puts the listing just below my introduction.
+
+## Add a Project
+
+Here's the dashboard entry from `projects.yml`:
+
+```yaml
+- title: "Case 31: Credit Union Member Experience"
+  path: case31-dashboard.html
+  description: "Employee ratings, service awareness, and loan perceptions from the Case 31 teaching data."
+  categories: [R, Survey Analysis, Quarto]
+```
+
+The `path` is the page that opens when someone clicks the title.
+Categories let visitors browse by skill. For example, choosing **R**
+shows the dashboard entry.
+
+## Why I Chose a Table
+
+| Layout | Where I'd use it |
+|---|---|
+| `table` | A short list of projects that are easy to compare |
+| `grid` | Projects with useful preview images |
+| `default` | Blog posts or entries with longer descriptions |
+
+A table works for these three examples. If I add projects with preview
+images later, I'd try a grid.
+
+## Resources I Used
+
+- [Quarto Listings](https://quarto.org/docs/websites/website-listings.html)
+- [Entries in a YAML file](https://quarto.org/docs/websites/website-listings.html#yaml-listing-content)

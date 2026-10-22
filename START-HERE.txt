@@ -1,0 +1,60 @@
+M10 — website and submission files
+
+WHAT IS INCLUDED
+- Your latest page text and photo.
+- The corrected Case 31 dashboard source.
+- A rendered website in docs/.
+- M10-submission.qmd and M10-submission.html.
+- Data attribution, a README, and CHECKS.md with the verification details.
+
+THE WEBSITE HAS BEEN RENDERED AND CHECKED
+The full project was rendered with R and Quarto. The dashboard's value boxes,
+page navigation, tables, and tabs now display as a dashboard. Desktop and
+narrow-screen pages were checked in a browser. Your other content edits remain.
+
+OPEN THE WEBSITE
+1. Unzip this download in a new location.
+2. Open M10/docs/index.html in your browser to see the rendered website.
+3. To edit or render again, open M10/M10.Rproj in RStudio.
+4. Install any missing R packages in the R Console:
+   install.packages(c("tidyverse", "readxl", "scales", "knitr"))
+5. In the Terminal, use this command to render the whole site:
+   quarto render
+   Then preview with:
+   quarto preview
+
+PUBLISH TO GITHUB PAGES
+Your account in the previously shared GitHub link was Sheilaaa0312. The
+submission files are prepared for a repository named M10-Hands-on-Practice.
+
+1. On GitHub, create a PUBLIC repository named M10-Hands-on-Practice in that account.
+   Leave it empty: do not add a README, license, or gitignore on GitHub.
+2. Open M10.Rproj. In the Terminal, from the M10 folder, run:
+
+   git init
+   git branch -M main
+   git add .
+   git commit -m "Add M10 portfolio and Case 31 dashboard"
+   git remote add origin https://github.com/Sheilaaa0312/M10-Hands-on-Practice.git
+   git push -u origin main
+
+3. Open the repository's Settings > Pages.
+4. Choose Deploy from a branch, main, /docs, then Save.
+5. Wait for GitHub's deployment to finish, then open the website URL it shows.
+
+THE TWO LINKS
+Website: https://Sheilaaa0312.github.io/M10-Hands-on-Practice/
+Repository: https://github.com/Sheilaaa0312/M10-Hands-on-Practice
+
+These are the intended addresses. They are not confirmed live because the
+site has not been published. If you use a different account or repository
+name, update BOTH URLs in M10-submission.qmd.
+
+SUBMIT ONLY AFTER BOTH LINKS WORK
+1. Open M10-submission.html and click both links.
+2. If you changed the URLs, render the submission again:
+   quarto render M10-submission.qmd --to html
+3. Submit M10-submission.qmd and M10-submission.html.
+
+The ZIP is a complete project package for publishing. Publication and testing
+the two live links are still required to complete the assignment.

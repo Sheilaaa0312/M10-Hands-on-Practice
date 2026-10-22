@@ -1,0 +1,147 @@
+---
+title: "How I Styled This Site"
+subtitle: "A few changes with CSS and SCSS"
+toc: true
+---
+
+## What I Wanted to Change
+
+I started with Quarto's Cosmo theme and added teal links, a navy navigation
+bar, and a light background. I also made a note style and a small project
+card. You can see both examples on this page.
+
+HTML gives a page its structure. CSS controls how it looks, including the
+colors, fonts, borders, and spacing. SCSS lets me use variables and nest
+related rules. Quarto turns that SCSS into CSS when I render the site.
+
+## Load the Style Files
+
+These settings in `_quarto.yml` apply to the regular website pages:
+
+```yaml
+format:
+  html:
+    theme: [cosmo, site.scss]
+    css: styles.css
+```
+
+`site.scss` changes the theme. `styles.css` adds a few rules for particular
+parts of the page. The dashboard loads `dashboard.scss` in its own header
+because it has a different layout.
+
+## Try a CSS Class
+
+This note uses `.sample-note` from `styles.css`:
+
+::: {.sample-note}
+**Check the scale.** A high borrowing-rate score means the respondent
+thinks the rate is high. It doesn't mean they're more satisfied.
+:::
+
+```css
+.sample-note {
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  border-left: 4px solid #087f8c;
+  background-color: #edf4f5;
+  color: #183f52;
+}
+```
+
+`padding` adds space inside the border. `margin` adds space outside it.
+The colored border helps the note stand out without making the text bigger.
+
+I attach the class to a Markdown div like this:
+
+```markdown
+::: {.sample-note}
+The note goes here.
+:::
+```
+
+## Pick the Right Selector
+
+| Selector | What it selects |
+|---|---|
+| `h2` | All level-two headings |
+| `.sample-note` | Anything with the `sample-note` class |
+| `#project-example` | The element with that one ID |
+| `.learning-card h3` | Level-three headings inside a learning card |
+| `.project-link:hover` | A project link while the pointer is over it |
+
+A class is useful when I want to reuse a style. An ID identifies one
+element and can also give me a place to link to on the page.
+
+## Keep Colors in SCSS Variables
+
+I put these variables in the defaults section of `site.scss`:
+
+```scss
+/*-- scss:defaults --*/
+$portfolio-teal: #087f8c;
+$portfolio-navy: #183f52;
+
+$primary: $portfolio-teal;
+$navbar-bg: $portfolio-navy;
+$navbar-fg: #ffffff;
+```
+
+If I want to try another main color, I can change `$portfolio-teal` in one
+place. The theme settings and rules using it will use the new value.
+
+## Nest a Rule Inside a Card
+
+::: {#project-example .learning-card}
+### My Case 31 dashboard
+
+See the employee ratings and service-awareness charts from the credit union case.
+
+[Open the dashboard](dashboard.qmd){.project-link}
+:::
+
+Here's part of the SCSS for that card:
+
+```scss
+/*-- scss:rules --*/
+.learning-card {
+  border: 1px solid #c7d9dd;
+  border-top: 4px solid $portfolio-teal;
+  border-radius: 0.6rem;
+  padding: 1.25rem;
+
+  h3 {
+    margin-top: 0;
+    color: $portfolio-navy;
+  }
+}
+```
+
+The nested `h3` rule changes headings inside the card. It becomes
+`.learning-card h3` in the CSS, so other headings keep their usual style.
+
+## Make Links Easy to Find
+
+The card link has an underline. Its color changes on hover and when it
+gets keyboard focus. In `site.scss`, I used this nested rule:
+
+```scss
+.project-link {
+  color: $portfolio-navy;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus-visible {
+    color: #066773;
+    text-decoration-thickness: 0.15em;
+  }
+}
+```
+
+The `&` stands for `.project-link`. I can press Tab to check the focus
+style, then narrow the browser window to check how the page fits.
+
+## Resources I Used
+
+- [Quarto themes and SCSS](https://quarto.org/docs/output-formats/html-themes.html)
+- [MDN: CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors)
+- [Sass: nesting style rules](https://sass-lang.com/documentation/style-rules/)

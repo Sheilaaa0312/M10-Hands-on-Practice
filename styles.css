@@ -1,0 +1,18 @@
+/* A reusable class: spacing inside the border is padding. */
+.sample-note {
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  border-left: 4px solid #087f8c;
+  background-color: #edf4f5;
+  color: #183f52;
+}
+
+/* Keep longer paragraphs and lists easy to scan on the home page. */
+.quarto-about-jolla .about-contents {
+  text-align: left;
+}
+
+/* Prevent wide code examples from expanding the page on small screens. */
+pre {
+  overflow-x: auto;
+}

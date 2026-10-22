@@ -1,0 +1,261 @@
+[
+  {
+    "objectID": "listings.html",
+    "href": "listings.html",
+    "title": "Browse My Work",
+    "section": "",
+    "text": "Here’s my CEP case study, the Case 31 dashboard, and the styling page. The case study is still in progress. The dashboard uses separate teaching data.\n\n\n\n\n\n\nProject\n\n\n\nWhat's inside\n\n\n\nSkills\n\n\n\n\n\n\n\n\nCase 31: Credit Union Member Experience\n\n\nEmployee ratings, service awareness, and loan perceptions from the Case 31 teaching data.\n\n\nR, Survey Analysis, Quarto\n\n\n\n\n\n\nPhD Orthodontics: Content and Patient Information\n\n\nMy competitor comparison and plans for the content audit and survey analysis. Work in progress.\n\n\nContent Research, Competitor Analysis, Research Design\n\n\n\n\n\n\nPortfolio Website Styling\n\n\nThe CSS and SCSS behind this site’s colors, note style, and project card.\n\n\nCSS, SCSS, Web Design\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "listings.html#pick-a-project",
+    "href": "listings.html#pick-a-project",
+    "title": "Browse My Work",
+    "section": "",
+    "text": "Here’s my CEP case study, the Case 31 dashboard, and the styling page. The case study is still in progress. The dashboard uses separate teaching data.\n\n\n\n\n\n\nProject\n\n\n\nWhat's inside\n\n\n\nSkills\n\n\n\n\n\n\n\n\nCase 31: Credit Union Member Experience\n\n\nEmployee ratings, service awareness, and loan perceptions from the Case 31 teaching data.\n\n\nR, Survey Analysis, Quarto\n\n\n\n\n\n\nPhD Orthodontics: Content and Patient Information\n\n\nMy competitor comparison and plans for the content audit and survey analysis. Work in progress.\n\n\nContent Research, Competitor Analysis, Research Design\n\n\n\n\n\n\nPortfolio Website Styling\n\n\nThe CSS and SCSS behind this site’s colors, note style, and project card.\n\n\nCSS, SCSS, Web Design\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "listings.html#what-does-a-listing-do",
+    "href": "listings.html#what-does-a-listing-do",
+    "title": "Browse My Work",
+    "section": "What Does a Listing Do?",
+    "text": "What Does a Listing Do?\nA listing collects links and descriptions into one place. Quarto can read that information from pages or from a YAML file. I used projects.yml for this site because there are only three entries to keep track of.\nWhen I add a project to that file and render again, Quarto adds it to the table. I still need to publish the updated site for visitors to see it."
+  },
+  {
+    "objectID": "listings.html#the-settings-i-used",
+    "href": "listings.html#the-settings-i-used",
+    "title": "Browse My Work",
+    "section": "The Settings I Used",
+    "text": "The Settings I Used\nThese are the main settings in this page’s header:\nlisting:\n  id: portfolio-examples\n  contents: projects.yml\n  type: table\n  fields: [title, description, categories]\n  sort: \"title\"\n  categories: true\ncontents points to my entries. type chooses the layout, and fields chooses the columns. I also renamed the column headings in the full header and turned off the search and sorting controls for this small collection.\nThe div named portfolio-examples puts the listing just below my introduction."
+  },
+  {
+    "objectID": "listings.html#add-a-project",
+    "href": "listings.html#add-a-project",
+    "title": "Browse My Work",
+    "section": "Add a Project",
+    "text": "Add a Project\nHere’s the dashboard entry from projects.yml:\n- title: \"Case 31: Credit Union Member Experience\"\n  path: case31-dashboard.html\n  description: \"Employee ratings, service awareness, and loan perceptions from the Case 31 teaching data.\"\n  categories: [R, Survey Analysis, Quarto]\nThe path is the page that opens when someone clicks the title. Categories let visitors browse by skill. For example, choosing R shows the dashboard entry."
+  },
+  {
+    "objectID": "listings.html#why-i-chose-a-table",
+    "href": "listings.html#why-i-chose-a-table",
+    "title": "Browse My Work",
+    "section": "Why I Chose a Table",
+    "text": "Why I Chose a Table\n\n\n\nLayout\nWhere I’d use it\n\n\n\n\ntable\nA short list of projects that are easy to compare\n\n\ngrid\nProjects with useful preview images\n\n\ndefault\nBlog posts or entries with longer descriptions\n\n\n\nA table works for these three examples. If I add projects with preview images later, I’d try a grid."
+  },
+  {
+    "objectID": "listings.html#resources-i-used",
+    "href": "listings.html#resources-i-used",
+    "title": "Browse My Work",
+    "section": "Resources I Used",
+    "text": "Resources I Used\n\nQuarto Listings\nEntries in a YAML file"
+  },
+  {
+    "objectID": "case-study.html",
+    "href": "case-study.html",
+    "title": "PhD Orthodontics: Content and Patient Information",
+    "section": "",
+    "text": "NoteWhere the project stands\n\n\n\nI’ve prepared the competitor comparison and research methods. The content audit, survey analysis, and final recommendations are still planned work."
+  },
+  {
+    "objectID": "case-study.html#what-im-working-on",
+    "href": "case-study.html#what-im-working-on",
+    "title": "PhD Orthodontics: Content and Patient Information",
+    "section": "What I’m Working On",
+    "text": "What I’m Working On\nWhat do prospective patients want to know before contacting PhD Orthodontics? How clearly does the website answer those questions?\nThat’s the focus of my objective, AO3: content and lead generation. I’m looking at the information on the pages, including treatment explanations, payment information, and consultation steps. San Gabriel is our current focus. Chino Hills is a future planning area."
+  },
+  {
+    "objectID": "case-study.html#what-ive-done-so-far",
+    "href": "case-study.html#what-ive-done-so-far",
+    "title": "PhD Orthodontics: Content and Patient Information",
+    "section": "What I’ve Done So Far",
+    "text": "What I’ve Done So Far\nI compared PhD Orthodontics with Valley Smiles Orthodontics and San Marino Orthodontics for our report. I also prepared and presented that comparison and the content opportunities in our proposal slides.\n\n\n\n\n\n\n\nWhat I noticed in our review\nWhat I want to check next\n\n\n\n\nPhD has early-treatment information, FAQs, provider qualifications, and appointment prompts.\nHow clearly do the pages explain early treatment versus monitoring and what happens at a consultation?\n\n\nValley Smiles’ Alhambra page puts treatment information, financing, directions, and a consultation form together.\nCan someone find PhD’s treatment, payment, and contact information without searching across several pages?\n\n\nSan Marino’s aligner page explains the process, and its Patient Resources page covers insurance and financing.\nHow fully does PhD explain the treatment process and payment options?\n\n\n\nThese examples come from our report and proposal review. They give me things to check; I haven’t confirmed that those topics are missing from PhD’s website."
+  },
+  {
+    "objectID": "case-study.html#my-plan-for-the-content-audit",
+    "href": "case-study.html#my-plan-for-the-content-audit",
+    "title": "PhD Orthodontics: Content and Patient Information",
+    "section": "My Plan for the Content Audit",
+    "text": "My Plan for the Content Audit\nI’ll review the relevant service, FAQ, education, financial, provider, location, and consultation pages. For each topic, I’ll save the page URL, review date, and a short excerpt or page location supporting the code.\n\n\n\n\n\n\n\nCode\nHow I’ll use it\n\n\n\n\n0 — Absent\nAn applicable topic isn’t addressed on the reviewed page.\n\n\n1 — Brief\nThe page mentions the topic but gives little explanation.\n\n\n2 — Explained\nThe page gives details that help answer the question.\n\n\n\nI’ll keep clarity notes separately and check other included pages before calling something a website-wide gap. Inaccessible pages and topics that don’t apply will stay separate from a zero score. Clinical questions will go to the client for checking.\nI plan to ask another member to independently review about 20% of the coding records and record agreement before we discuss differences."
+  },
+  {
+    "objectID": "case-study.html#what-the-survey-would-add",
+    "href": "case-study.html#what-the-survey-would-add",
+    "title": "PhD Orthodontics: Content and Patient Information",
+    "section": "What the Survey Would Add",
+    "text": "What the Survey Would Add\nThe draft asks what information people need before showing them selected website material. People who confirm reviewing that material then rate its clarity, relevance, coverage, and usefulness. I’ll look at those items separately and keep “cannot judge” apart from neutral answers.\nThe open questions could show what people still want to know and what might stop them from contacting the practice. The Qualtrics export is a questionnaire draft, not response data. The website material still needs instructor confirmation, so I don’t have survey findings to report yet."
+  },
+  {
+    "objectID": "case-study.html#what-id-like-to-produce",
+    "href": "case-study.html#what-id-like-to-produce",
+    "title": "PhD Orthodontics: Content and Patient Information",
+    "section": "What I’d Like to Produce",
+    "text": "What I’d Like to Produce\nI’d like to make a table linking each suggested content change to the reason for it: a question raised in the survey, a topic found in the audit, a competitor example, a review theme, or a captured search topic.\nThe partial Google Ads search terms can give me topics to check. They don’t show overall search demand or which content led to an inquiry. I’ll use the audit and survey evidence to decide the priorities with the team."
+  },
+  {
+    "objectID": "case-study.html#project-materials",
+    "href": "case-study.html#project-materials",
+    "title": "PhD Orthodontics: Content and Patient Information",
+    "section": "Project Materials",
+    "text": "Project Materials\n\nGroup 6 CEP report, Chapters 1–3: AO3 and the competitive analysis.\nGroup 6 proposal slides, especially slides 7, 10, 15, and 20.\nGroup 6 Qualtrics questionnaire draft: Q2, Q4, Q5, and the open questions.\n\nMy Case 31 dashboard uses separate course data for practice.\nBack to my work"
+  },
+  {
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "Case 31: Credit Union Dashboard",
+    "section": "",
+    "text": "How do members rate employees? Which services do they know about or use? I used the Case 31 Employees Federal Credit Union data to explore these questions in R and build my first dashboard for this module.\nOpen the dashboard"
+  },
+  {
+    "objectID": "dashboard.html#what-do-members-think",
+    "href": "dashboard.html#what-do-members-think",
+    "title": "Case 31: Credit Union Dashboard",
+    "section": "",
+    "text": "How do members rate employees? Which services do they know about or use? I used the Case 31 Employees Federal Credit Union data to explore these questions in R and build my first dashboard for this module.\nOpen the dashboard"
+  },
+  {
+    "objectID": "dashboard.html#whats-inside",
+    "href": "dashboard.html#whats-inside",
+    "title": "Case 31: Credit Union Dashboard",
+    "section": "What’s Inside",
+    "text": "What’s Inside\n\n\n\n\n\n\n\nPage\nWhat you’ll find\n\n\n\n\nMember Experience\nEmployee ratings, overall ratings, loan status, and rate perceptions\n\n\nService Awareness\nAwareness and use of 14 credit union services\n\n\nData Notes\nThe source, response scales, and how I handled missing answers\n\n\n\nThe workbook has 128 records. The average employee rating is 4.21 out of 5. For the overall management and operation question, 102 of 121 valid answers (84.3%) are good or excellent.\nThose overall results look positive, but the employee chart shows that availability has lower agreement than courtesy or helpfulness. I’d want to ask about that difference before suggesting a change.\n\n\n\n\n\n\nNoteA quick note on the scales\n\n\n\nA higher employee rating is favorable. A higher borrowing-rate score means someone thinks the rate is high. They answer different questions, so I show them separately."
+  },
+  {
+    "objectID": "dashboard.html#how-i-put-it-together",
+    "href": "dashboard.html#how-i-put-it-together",
+    "title": "Case 31: Credit Union Dashboard",
+    "section": "How I Put It Together",
+    "text": "How I Put It Together\nI read the Excel file with read_excel(), then used pivot_longer(), count(), and summarise() to prepare the chart data. I made the plots with ggplot2 and the tables with knitr::kable().\nThe dashboard uses headings for its pages and rows, value boxes for the main numbers, and tabs for the extra detail. The code runs when I render the file. Visitors can switch pages and tabs in the HTML output."
+  },
+  {
+    "objectID": "dashboard.html#about-the-data",
+    "href": "dashboard.html#about-the-data",
+    "title": "Case 31: Credit Union Dashboard",
+    "section": "About the Data",
+    "text": "About the Data\nThese are course teaching data, separate from my CEP. I used the prepared columns and the instructor’s coding notes. The dashboard’s Data Notes explain missing answers and a difference between the workbook’s record count and the count described in the printed case.\nSource: Jae Min Jung, Employees Federal Credit Union Case, CC BY 4.0. I adapted the prepared data into this dashboard."
+  },
+  {
+    "objectID": "dashboard.html#my-cep-work",
+    "href": "dashboard.html#my-cep-work",
+    "title": "Case 31: Credit Union Dashboard",
+    "section": "My CEP Work",
+    "text": "My CEP Work\nMy client project is about content and lead generation for PhD Orthodontics. The case study covers the competitor comparison I’ve done and the audit and survey work I’m planning.\nRead my CEP case study"
+  },
+  {
+    "objectID": "dashboard.html#resources-i-used",
+    "href": "dashboard.html#resources-i-used",
+    "title": "Case 31: Credit Union Dashboard",
+    "section": "Resources I Used",
+    "text": "Resources I Used\n\nQuarto dashboard layout\nQuarto dashboard data display"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Xueying Luo",
+    "section": "",
+    "text": "You can also call me Sheila. I’m studying digital marketing at Cal Poly Pomona. Before that, I studied Economics and Book & Media Studies at the University of Toronto in Canada.\nI’ve worked on SEO content, social media planning, and competitor research during my internships. I’m now learning how to use R, SQL, and Quarto to work with marketing data and share what I find."
+  },
+  {
+    "objectID": "index.html#hi-im-xueying-nice-to-meet-you",
+    "href": "index.html#hi-im-xueying-nice-to-meet-you",
+    "title": "Xueying Luo",
+    "section": "",
+    "text": "You can also call me Sheila. I’m studying digital marketing at Cal Poly Pomona. Before that, I studied Economics and Book & Media Studies at the University of Toronto in Canada.\nI’ve worked on SEO content, social media planning, and competitor research during my internships. I’m now learning how to use R, SQL, and Quarto to work with marketing data and share what I find."
+  },
+  {
+    "objectID": "index.html#where-id-like-to-go",
+    "href": "index.html#where-id-like-to-go",
+    "title": "Xueying Luo",
+    "section": "Where I’d Like to Go",
+    "text": "Where I’d Like to Go\nI’d like to work in marketing analytics, especially in search and content. My SEO internship got me interested in questions like why some pages attract visitors while others lose traffic. I want to get better at using data to answer those questions and decide what to try next."
+  },
+  {
+    "objectID": "index.html#skills-im-building-on",
+    "href": "index.html#skills-im-building-on",
+    "title": "Xueying Luo",
+    "section": "Skills I’m Building On",
+    "text": "Skills I’m Building On\n\nSEO and research: Keyword research, content briefs, competitor research, backlink outreach, and internal links. I’ve used Ahrefs, Similarweb, Semrush, and WordPress.\nContent: Social post planning, creator research, and creative briefs; Canva and CapCut for visual content.\nLearning now: Cleaning and plotting data in R, writing SQL queries, planning GA4 events, and building Quarto reports and dashboards.\nWorking with others: Excel, PowerPoint, Docs, and Slides."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Xueying Luo",
+    "section": "Education",
+    "text": "Education\nCal Poly Pomona\nM.S. in Digital Marketing\nAugust 2026–Present | Planned Marketing Analytics emphasis\nUniversity of Toronto\nHonours B.A., Double Major in Economics and Book & Media Studies\nSeptember 2022–June 2026"
+  },
+  {
+    "objectID": "index.html#a-little-about-my-experience",
+    "href": "index.html#a-little-about-my-experience",
+    "title": "Xueying Luo",
+    "section": "A Little About My Experience",
+    "text": "A Little About My Experience\nSocial Media Specialist Intern\nMarch–August 2026\nI researched smart-glasses Kickstarter campaigns, planned social content and a product-trailer storyboard, and helped coordinate creative work. I also built a list of more than 350 potential creators for future outreach.\nSEO Intern\nMay–December 2025\nI wrote more than 40 content briefs that contributed to 60 published website articles. I also worked on content updates, backlinks, internal links, and tutorial posts. The TikTok content I supported received more than 180,000 views.\nProject Associate Intern\nMay–July 2024\nI helped candidates use assessment systems, organized more than 200 assessment records, and worked with project managers and IT colleagues to prepare materials and sort out system issues."
+  },
+  {
+    "objectID": "index.html#take-a-look-at-my-work",
+    "href": "index.html#take-a-look-at-my-work",
+    "title": "Xueying Luo",
+    "section": "Take a Look at My Work",
+    "text": "Take a Look at My Work\nFor my CEP, I’m working with a team on PhD Orthodontics’ digital marketing. My part focuses on website content and prospective patients’ information needs. I’ve finished a competitor comparison and prepared the research methods; the content audit and survey analysis are still ahead.\nI also built a dashboard using Case 31 credit union data for this module. It’s a separate practice project.\nExplore the Case 31 dashboard Read my CEP case study Browse my work"
+  },
+  {
+    "objectID": "styling.html",
+    "href": "styling.html",
+    "title": "How I Styled This Site",
+    "section": "",
+    "text": "I started with Quarto’s Cosmo theme and added teal links, a navy navigation bar, and a light background. I also made a note style and a small project card. You can see both examples on this page.\nHTML gives a page its structure. CSS controls how it looks, including the colors, fonts, borders, and spacing. SCSS lets me use variables and nest related rules. Quarto turns that SCSS into CSS when I render the site."
+  },
+  {
+    "objectID": "styling.html#what-i-wanted-to-change",
+    "href": "styling.html#what-i-wanted-to-change",
+    "title": "How I Styled This Site",
+    "section": "",
+    "text": "I started with Quarto’s Cosmo theme and added teal links, a navy navigation bar, and a light background. I also made a note style and a small project card. You can see both examples on this page.\nHTML gives a page its structure. CSS controls how it looks, including the colors, fonts, borders, and spacing. SCSS lets me use variables and nest related rules. Quarto turns that SCSS into CSS when I render the site."
+  },
+  {
+    "objectID": "styling.html#load-the-style-files",
+    "href": "styling.html#load-the-style-files",
+    "title": "How I Styled This Site",
+    "section": "Load the Style Files",
+    "text": "Load the Style Files\nThese settings in _quarto.yml apply to the regular website pages:\nformat:\n  html:\n    theme: [cosmo, site.scss]\n    css: styles.css\nsite.scss changes the theme. styles.css adds a few rules for particular parts of the page. The dashboard loads dashboard.scss in its own header because it has a different layout."
+  },
+  {
+    "objectID": "styling.html#try-a-css-class",
+    "href": "styling.html#try-a-css-class",
+    "title": "How I Styled This Site",
+    "section": "Try a CSS Class",
+    "text": "Try a CSS Class\nThis note uses .sample-note from styles.css:\n\nCheck the scale. A high borrowing-rate score means the respondent thinks the rate is high. It doesn’t mean they’re more satisfied.\n\n.sample-note {\n  padding: 1rem 1.25rem;\n  margin: 1rem 0;\n  border-left: 4px solid #087f8c;\n  background-color: #edf4f5;\n  color: #183f52;\n}\npadding adds space inside the border. margin adds space outside it. The colored border helps the note stand out without making the text bigger.\nI attach the class to a Markdown div like this:\n::: {.sample-note}\nThe note goes here.\n:::"
+  },
+  {
+    "objectID": "styling.html#pick-the-right-selector",
+    "href": "styling.html#pick-the-right-selector",
+    "title": "How I Styled This Site",
+    "section": "Pick the Right Selector",
+    "text": "Pick the Right Selector\n\n\n\nSelector\nWhat it selects\n\n\n\n\nh2\nAll level-two headings\n\n\n.sample-note\nAnything with the sample-note class\n\n\n#project-example\nThe element with that one ID\n\n\n.learning-card h3\nLevel-three headings inside a learning card\n\n\n.project-link:hover\nA project link while the pointer is over it\n\n\n\nA class is useful when I want to reuse a style. An ID identifies one element and can also give me a place to link to on the page."
+  },
+  {
+    "objectID": "styling.html#keep-colors-in-scss-variables",
+    "href": "styling.html#keep-colors-in-scss-variables",
+    "title": "How I Styled This Site",
+    "section": "Keep Colors in SCSS Variables",
+    "text": "Keep Colors in SCSS Variables\nI put these variables in the defaults section of site.scss:\n/*-- scss:defaults --*/\n$portfolio-teal: #087f8c;\n$portfolio-navy: #183f52;\n\n$primary: $portfolio-teal;\n$navbar-bg: $portfolio-navy;\n$navbar-fg: #ffffff;\nIf I want to try another main color, I can change $portfolio-teal in one place. The theme settings and rules using it will use the new value."
+  },
+  {
+    "objectID": "styling.html#nest-a-rule-inside-a-card",
+    "href": "styling.html#nest-a-rule-inside-a-card",
+    "title": "How I Styled This Site",
+    "section": "Nest a Rule Inside a Card",
+    "text": "Nest a Rule Inside a Card\n\n\nMy Case 31 dashboard\nSee the employee ratings and service-awareness charts from the credit union case.\nOpen the dashboard\n\n\nHere’s part of the SCSS for that card:\n/*-- scss:rules --*/\n.learning-card {\n  border: 1px solid #c7d9dd;\n  border-top: 4px solid $portfolio-teal;\n  border-radius: 0.6rem;\n  padding: 1.25rem;\n\n  h3 {\n    margin-top: 0;\n    color: $portfolio-navy;\n  }\n}\nThe nested h3 rule changes headings inside the card. It becomes .learning-card h3 in the CSS, so other headings keep their usual style."
+  },
+  {
+    "objectID": "styling.html#make-links-easy-to-find",
+    "href": "styling.html#make-links-easy-to-find",
+    "title": "How I Styled This Site",
+    "section": "Make Links Easy to Find",
+    "text": "Make Links Easy to Find\nThe card link has an underline. Its color changes on hover and when it gets keyboard focus. In site.scss, I used this nested rule:\n.project-link {\n  color: $portfolio-navy;\n  text-decoration: underline;\n\n  &:hover,\n  &:focus-visible {\n    color: #066773;\n    text-decoration-thickness: 0.15em;\n  }\n}\nThe & stands for .project-link. I can press Tab to check the focus style, then narrow the browser window to check how the page fits."
+  },
+  {
+    "objectID": "styling.html#resources-i-used",
+    "href": "styling.html#resources-i-used",
+    "title": "How I Styled This Site",
+    "section": "Resources I Used",
+    "text": "Resources I Used\n\nQuarto themes and SCSS\nMDN: CSS selectors\nSass: nesting style rules"
+  }
+]

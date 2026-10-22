@@ -1,0 +1,45 @@
+/*-- scss:defaults --*/
+$portfolio-teal: #087f8c;
+$portfolio-navy: #183f52;
+$portfolio-paper: #f8fafb;
+
+$primary: $portfolio-teal;
+$body-bg: $portfolio-paper;
+$body-color: #243746;
+$link-color: #066773;
+$navbar-bg: $portfolio-navy;
+$navbar-fg: #ffffff;
+$font-family-sans-serif: Arial, Helvetica, sans-serif;
+
+/*-- scss:rules --*/
+.learning-card {
+  border: 1px solid #c7d9dd;
+  border-top: 4px solid $portfolio-teal;
+  border-radius: 0.6rem;
+  padding: 1.25rem;
+  margin: 1rem 0 1.5rem;
+  background-color: #ffffff;
+
+  h3 {
+    margin-top: 0;
+    color: $portfolio-navy;
+  }
+}
+
+.project-link {
+  color: $portfolio-navy;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+
+  &:hover,
+  &:focus-visible {
+    color: #066773;
+    text-decoration-thickness: 0.15em;
+  }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #b96512;
+  outline-offset: 3px;
+}

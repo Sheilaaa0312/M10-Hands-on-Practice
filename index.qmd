@@ -1,0 +1,90 @@
+---
+title: "Xueying Luo"
+subtitle: "Digital Marketing | Marketing Analytics"
+about:
+  template: jolla
+  image: images/profile.JPG
+  image-alt: "Portrait of Xueying Luo"
+  image-shape: round
+  image-width: 13em
+  links:
+    - icon: envelope
+      text: Email
+      href: mailto:luoxueying7@gmail.com
+toc: false
+---
+
+## Hi, I'm Xueying! Nice to meet you!
+
+You can also call me Sheila. I'm studying digital marketing at Cal Poly
+Pomona. Before that, I studied Economics and Book & Media Studies at the
+University of Toronto in Canada.
+
+I've worked on SEO content, social media planning, and competitor research
+during my internships. I'm now learning how to use R, SQL, and Quarto to
+work with marketing data and share what I find.
+
+## Where I'd Like to Go
+
+I'd like to work in marketing analytics, especially in search and content.
+My SEO internship got me interested in questions like why some pages
+attract visitors while others lose traffic. I want to get better at using
+data to answer those questions and decide what to try next.
+
+## Skills I'm Building On
+
+- **SEO and research:** Keyword research, content briefs, competitor research,
+  backlink outreach, and internal links. I've used Ahrefs, Similarweb, Semrush, and WordPress.
+- **Content:** Social post planning, creator research, and creative briefs;
+  Canva and CapCut for visual content.
+- **Learning now:** Cleaning and plotting data in R, writing SQL queries,
+  planning GA4 events, and building Quarto reports and dashboards.
+- **Working with others:** Excel, PowerPoint, Docs, and Slides.
+
+## Education
+
+**Cal Poly Pomona**  
+M.S. in Digital Marketing  
+August 2026–Present | Planned Marketing Analytics emphasis
+
+**University of Toronto**  
+Honours B.A., Double Major in Economics and Book & Media Studies  
+September 2022–June 2026
+
+## A Little About My Experience
+
+**Social Media Specialist Intern**  
+March–August 2026
+
+I researched smart-glasses Kickstarter campaigns, planned social content
+and a product-trailer storyboard, and helped coordinate creative work.
+I also built a list of more than 350 potential creators for future outreach.
+
+**SEO Intern**  
+May–December 2025
+
+I wrote more than 40 content briefs that contributed to 60 published
+website articles. I also worked on content updates,
+backlinks, internal links, and tutorial posts. The TikTok content I
+supported received more than 180,000 views.
+
+**Project Associate Intern**  
+May–July 2024
+
+I helped candidates use assessment systems, organized more than 200
+assessment records, and worked with project managers and IT colleagues
+to prepare materials and sort out system issues.
+
+## Take a Look at My Work
+
+For my CEP, I'm working with a team on PhD Orthodontics' digital marketing.
+My part focuses on website content and prospective patients' information
+needs. I've finished a competitor comparison and prepared the research
+methods; the content audit and survey analysis are still ahead.
+
+I also built a dashboard using Case 31 credit union data for this module.
+It's a separate practice project.
+
+[Explore the Case 31 dashboard](dashboard.qmd){.btn .btn-primary}
+[Read my CEP case study](case-study.qmd){.btn .btn-outline-primary}
+[Browse my work](listings.qmd){.btn .btn-outline-primary}

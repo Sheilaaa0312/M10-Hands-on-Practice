@@ -1,0 +1,28 @@
+/*-- scss:defaults --*/
+$primary: #087f8c;
+$secondary: #183f52;
+$navbar-bg: #183f52;
+$navbar-fg: #ffffff;
+$font-family-sans-serif: Arial, Helvetica, sans-serif;
+
+/*-- scss:rules --*/
+.card-header {
+  background-color: #edf4f5;
+  color: #183f52;
+  font-weight: 600;
+}
+
+.card a {
+  text-underline-offset: 0.15em;
+  &:focus-visible {
+    outline: 3px solid #b96512;
+    outline-offset: 3px;
+  }
+}
+
+
+/* Let a wider table scroll inside its card on a small screen. */
+.card-body {
+  overflow-x: auto;
+}
+
